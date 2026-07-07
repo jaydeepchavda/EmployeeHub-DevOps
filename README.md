@@ -72,5 +72,5 @@ I extended and customized it to deepen my understanding of full-stack developmen
 - 🐙 [GitHub](https://github.com/falbd)
 
 > Feel free to connect or reach out if you find this project helpful!
-
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOoX4FgF4AbWAZKjM2qNcJ2GVORVZDkGXFb/w34ixgch jaydipchavda2216@gmail.com
 
