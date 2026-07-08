@@ -26,4 +26,6 @@ COPY --from=build /app/publish .
 
 EXPOSE 5033
 
+COPY Images ./Images
+
 ENTRYPOINT [ "dotnet" , "RHWalks.API.dll" ]
