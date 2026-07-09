@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rhwalks-api
+spec:
+
+  replicas: 2
+
+
+  selector:
+    matchLabels:
+      app: rhwalks-api
+
+  template:
+    metadata:
+      labels:
+        app: rhwalks-api
+        
+    spec:
+      containers:
+      - name: rhwalks-api
+        image: jaydeepchavda/rhwalks-api:v1
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 5043
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+
+          limits: 
+            cpu: "500m"
+            memory: "512Mi"
