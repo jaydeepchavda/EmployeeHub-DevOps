@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: rhWalks-db
+  namespace: rhwalks-dev
+
+
+spec:
+
+  serviceName: rhwalks-db
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: rhwalks-db
+
+  template:
+    metadata:
+      labels:
+        app: rhwalks-db
+        
+    spec:
+      containers:
+      - name: rhwalks-db
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        ports:
+        - containerPort: 1433
+          name: web
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+
+            - name: MSSQL_SA_PASSWORD
+              value: "YourStrong@Pass123"
+
+          volumeMounts:
+            - name: sqlserver-storage
+              mountPath: /var/opt/mssql
+
+  volumeClaimTemplates:
+    - metadata:
+        name: sqlserver-storage
+
+      spec:
+        accessModes:
+          - ReadWriteOnce
+
+        resources:
+          requests:
+            storage: 5Gi
