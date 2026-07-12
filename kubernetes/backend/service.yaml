@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rhwalks-api-service
+  namespace: rhwalks-dev
+
+spec:
+
+  type: ClusterIP 
+
+
+  selector:
+    app: rhwalks-api
+  ports:
+  - port: 8080
+    targetPort: 8080
