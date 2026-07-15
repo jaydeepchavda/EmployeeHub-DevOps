@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rhwalks-api
+  namespace: "rhwalks-dev"
+data:
+
+  ASPNETCORE_ENVIRONMENT: "Development"
+
+  DB_SERVER: "sqlserver"
+
+  DB_NAME: "RHWalks"
+
+  JWT_ISSUER: "RHWalks"
+
+  JWT_AUDIENCE: "RHWalksUsers"
+
+  LOG_LEVEL: "Information"
+
+
+
