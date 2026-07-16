@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: rhwalks-api
+  name: rhwalks-api-config
   namespace: "rhwalks-dev"
 data:
 
