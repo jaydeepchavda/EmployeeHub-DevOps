@@ -27,6 +27,13 @@ spec:
         ports:
         - containerPort: 80
 
+        env:
+        - name: APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: rhwalks-ui-config
+              key: APP_NAME
+
         resources:
           requests:
             cpu: "100m"

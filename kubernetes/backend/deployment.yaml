@@ -28,6 +28,14 @@ spec:
           ports:
             - containerPort: 8080
 
+
+          env:
+          - name: ASPNETCORE_ENVIRONMENT
+            valueFrom:
+              configMapKeyRef:
+                name: rhwalks-api-config
+                key: ASPNETCORE_ENVIRONMENT
+
           resources:
             requests:
               cpu: "100m"
