@@ -8,6 +8,13 @@ metadata:
 spec:
   replicas: 2
 
+  strategy:
+    type: RollingUpdate
+
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+
   selector:
     matchLabels:
       app: rhwalks-api
@@ -28,13 +35,12 @@ spec:
           ports:
             - containerPort: 8080
 
-
           env:
-          - name: ASPNETCORE_ENVIRONMENT
-            valueFrom:
-              configMapKeyRef:
-                name: rhwalks-api-config
-                key: ASPNETCORE_ENVIRONMENT
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: rhwalks-api-config
+                  key: ASPNETCORE_ENVIRONMENT
 
           resources:
             requests:
